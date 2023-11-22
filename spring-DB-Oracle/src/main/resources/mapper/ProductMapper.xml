@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.kh.springdb.mapper.ProductMapper">
 
-<mapepr namespace="com.kh.springdb.mapper.ProductMapper">
-		<!--
-			namespace : 매퍼 파일의 위치를 지정.
-			id 값에 전달해줄 메서드를 지정. 예를 들어 getAllProducts 메서드에 전달해주고 싶으면 id 값에 getAllProducts를 넣어주면 됨.
-			resultType : 전달해 줄 장소. model 객체로 mapping해서 반환하도록 설정한 것.
-		-->
-	<select id="getAllProducts" resultType="com.kh.springdb.model">
-		SELECT * FROM products
-	</select>
-</mapepr>
+    <select id="getAllProducts" resultType="com.kh.springdb.model.Product">
+        SELECT * FROM products
+    </select>
+
+</mapper>
