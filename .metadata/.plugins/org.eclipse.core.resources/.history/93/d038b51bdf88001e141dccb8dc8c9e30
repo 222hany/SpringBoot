@@ -1,0 +1,5 @@
+package com.kh.springdb.mapper;
+
+public class ProductMapper {
+
+}
