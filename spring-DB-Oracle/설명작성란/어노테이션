@@ -1,0 +1,22 @@
+@SpringBootApplication : 애플리케이션을 시작할 때 이 어노테이션이 있는 클래스부터 설정을 읽어오고 자동으로 구성.
+						@MapperScan : MyBatis 매퍼 인터페이스를 찾아서 MyBatis와 연동하는데 사용. MyBatis sql 매퍼 파일 이외도 데이터베이스와 연동할 수 있게 도와줌.
+						@ComponentScan : 스프링 컨테이너가 어디서 빈을 찾아야하는지를 지정하는데 사용. ex.@ComponentScan(basePackages = "패키지(com...)")
+
+@Component : 재사용이 가능한 각각의 독립된 조작장치.
+
+@Controller : 컨트롤러에 해당하는 클래스를 웹 애플리케이션 컨트롤러로 지정한다는 의미.
+			  주로 Spring MVC 패턴에서 많이 사용되며, HTTP(GET, PUT)요청을 처리하고 응답을 반환할 수 있는 표시.
+			  
+@PathVariable : 메서드의 매개변수에서 경로로 줄 변수값을 추출함. 경로에 포함된 변수 값을 메서드의 매개변수 값으로 전달받아 사용할 수 있게 함.
+
+@Autowired : DI 의존성을 주입하는데 사용. 이 어노테이션이 붙은 필드나 생성자는 스프링안에 존재하는 컨테이너에서 해당하는 타입의 빈을 찾아서 부여받음.
+
+@Service : 컨트롤러에서 요청하는 로직을 처리하는데 사용.
+
+@GetMapping : DB(Select) 나 서버에서 받은 요청을 읽어 전달하는데 사용.
+
+@PostMapping : DB(Insert) 로 받은 요청을 추가하는데 사용. 주로 html에서 form을 통해 전송된 데이터를 처리하는데 사용.
+
+@PutMapping : DB(Update) 로 받은 요청을 추가하는데 사용. 주로 DB 내용을 전체적으로 교체하는데 사용.
+
+@DeleteMapping : DB(Delete) 로 받은 요청을 삭제하는데 사용. 주로 DB 내용을 삭제하는데 사용.

@@ -1,6 +1,5 @@
 @charset "EUC-KR";
 
 table{
-	border: 1;
-	background-color: lavenderblush;
+	border: solid 1px;
 }
