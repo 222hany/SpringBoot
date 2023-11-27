@@ -16,4 +16,23 @@
 		INSERT INTO memberinfo (mno, mname, memail, mbirth)
 		VALUES(#{mno}, #{mname}, #{memail}, #{mbirth})
 	</insert>
+	
+	<!-- 로그인 -->
+	<select id="loginUser" resultType="com.kh.springdb.model.User">
+        SELECT * FROM MEMBERINFO WHERE MEMAIL = #{memail}
+    </select>
+	
+	<!-- 회원정보 수정 -->
+	<update id="updateUser" parameterType="com.kh.springdb.model.User">
+		UPDATE memberinfo
+		SET
+		mname = #{mname},
+		memail = #{memail}
+		WHERE mno = #{mno}
+	</update>
+	
+	<!-- 회원 삭제 -->
+	<delete id="deleteUser" parameterType ="int">
+		DELETE FROM memberinfo WHERE mno = #{id}
+	</delete>
 </mapper>

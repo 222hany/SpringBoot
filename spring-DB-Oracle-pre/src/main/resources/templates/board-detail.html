@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>게시물 상세보기</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/styles.css}"/>
+	</head>
+	
+	<body>
+		<table>
+			<tr>
+				<td>아이디</td>
+				<td th:text="${board.boardId}"></td>
+			</tr>
+			<tr>
+				<td>제목</td>
+				<td th:text="${board.title}"></td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td th:text="${board.content}"></td>
+			</tr>
+			<tr>
+				<td>글쓴이</td>
+				<td th:text="${board.author}"></td>
+			</tr>
+		</table>
+		<a th:href="@{/boards}">목록으로 돌아가기</a>
+	</body>
+</html>

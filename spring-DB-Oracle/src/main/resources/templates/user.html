@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Info</title>
+</head>
+<body>
+    <h1>User Information</h1>
+    
+    <div th:if="${user != null}">
+        <p th:text="'User ID: ' + ${user.mno}"></p>
+        <p th:text="'Username: ' + ${user.mname}"></p>
+
+    </div>
+    
+    <div th:if="${user == null}">
+        <p>User not found</p>
+    </div>
+</body>
+</html>

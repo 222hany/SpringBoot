@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.springdb.mapper.LoginMapper">
+	<resultMap id="userInfoResultMap" type="com.kh.springdb.model.User">
+		<id property="mno" column="MNO"/>
+		<result property="mname" column="MNAME"/>
+		<result property="memail" column="MEMAIL"/>
+		<result property="mbirth" column="MBIRTH"/>
+	</resultMap>
+	<select id="loginByMnameAndMemail" resultMap="userInfoResultMap">
+		SELECT * FROM MEMBERINFO WHERE MNAME= #{mname} AND MEMAIL = #{memail}
+	</select>
+</mapper>
+
+<!-- 
+	resultMap : MyBatis에서 자바 객체와 데이터베이스의 결과에 
+				대해 매핑하는 규칙을 정의하는데 사용
+				id="select에서 resultMap에 resultMap에서 감싼 결과를 
+					아이디명으로 전달해주기 위한 이름" 
+				type="가지고 올 모델의 패키지명을 작성해주어 자바 객체를 연결해줌"
+		   id : 주요 키를 나타냄(primaryKey)
+	   result : id 값을 제외한 나머지 값을 나타냄
+	   
+	 property : 자바객체에서 바라보는 변수명을 지정
+	   column : DB 테이블에서 바라보는 column 명을 지정 
+	   
+	   select : 데이터베이스에서 실행해야할 정보를 조회하는 쿼리를 작성
+	   		resultMap : <resultMap>에서 지정한 id값을 작성해줌
+
+ -->

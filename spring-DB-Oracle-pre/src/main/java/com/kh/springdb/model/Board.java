@@ -1,16 +1,16 @@
 package com.kh.springdb.model;
 
 public class Board {
-	private int board_id;
+	private int boardId;
 	private String title;
 	private String content;
 	private String author;
 	
-	public int getBoard_id() {
-		return board_id;
+	public int getBoardId() {
+		return boardId;
 	}
-	public void setBoard_id(int board_id) {
-		this.board_id = board_id;
+	public void setBoardId(int boardId) {
+		this.boardId = boardId;
 	}
 	public String getTitle() {
 		return title;

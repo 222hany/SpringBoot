@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 	<head>
 		<meta charset="EUC-KR">
 		<title>login</title>
 	</head>
+	
 	<body>
-	<!--
-		login mname 로그인하기
-		session 제외 로그인을 넘겨주는 것 까지만 진행
-	-->
-	<form th:action="@{/login}" method="post" th:object="${loginForm}">
-		<label for="mno"></label>
-		<input type="text" id="mno" name="mno" required>
-		<label for="mname"></label>
-		<input type="text" id="mname" name="mname" required>
-	</form>
+		<form th:action="@{/api/user/login}" method="post">
+			<label for="mname"> User Name : </label>
+			<input type="text" id="mname" name="mname" required>
+			<br>
+			<label for="memail"> User Email : </label>
+			<input type="text" id="memail" name="memail" required>
+			<br>
+			<button type="submit">Login</button>
+		</form>
+		
+		<p th:if="${error}" style="color:red"  th:text="${error}"></p>
+		<!-- 
+			login mname  로그인하기
+			session  x   로그인을 넘겨주는 것 까지만 진행
+		-->
 	</body>
 </html>
