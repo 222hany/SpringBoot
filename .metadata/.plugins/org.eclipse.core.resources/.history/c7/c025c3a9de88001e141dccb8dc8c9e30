@@ -1,9 +1,0 @@
-## 포트 번호를 바꿀 수 있음
-
-## DB 연결 설정을 해준 후
-spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XE
-spring.datasource.username=khbank
-spring.datasource.password=1234
-spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
-
-## VIEW의 위치를 설정할 수 있음

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Board Form</title>
+	</head>
+	
+	<body>
+		<h2>게시물 작성</h2>
+		<form th:action="@{/boards/save}" th:object="${board}" method="post">
+			<input type="hidden" th:field="*{boardId}"/>
+			
+			<label>제목</label>
+			<input type="text" th:field="*{title}"/><br/>
+			
+			<label>내용</label>
+			<textarea th:field="*{content}"/><br/>
+			
+			<label>작성자</label>
+			<input type="text" th:field="*{author}"/><br/>
+			
+			<button type="submit">작성하기</button>
+		</form>
+		<a th:href="@{/boards}">돌아가기</a>
+	</body>
+</html>

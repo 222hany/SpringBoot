@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>제품 추가하기</title>
+	</head>
+	<body>
+		<h2>제품 추가 폼 작성</h2>
+		<form th:action="@{/products/save}" th:object="${product}" method="post">
+			<input type="hidden" th:field="*{product_id}"/>
+			
+			<label>ID : </label>
+			<input th:text="${product.product_id}"/>
+			
+			<label>Name : </label>
+			<input th:field="*{product_name}"/>
+			
+			<label>Category : </label>
+			<input th:field="*{category}"/>
+			
+			<label>Price : </label>
+			<input th:field="*{price}"/>
+			
+			<label>Stock Quantity : </label>
+			<input th:field="*{stock_quantity}"/>
+			
+			<button type="submit">저장하기</button>
+			
+			<!-- 
+				th:text
+					DB에서 값을 가지고 옴.
+					th:object="${product}" -> 값을 하나만 가져옴 1.새로운 값이 자동으로 들어가야 하거나(insert) 2.기존에 있던 값이 또 한번 들어가야 함(update)
+					->html 하나만 만들고 컨트롤러에서 메서드 하나만 추가해서 메서드에서 기존에 id값이 있는지 없는지 존재여부만 체크. 만약 값이 있다면 수정. 없다면 새로 만들기.
+					th:text=${product_id} -> getProductId
+					th:text=${product.product_id} -> products 중에서 하나씩 가지고와서 넣어줌
+					특정 HTML 내용을 유동적으로 설정하는 데 사용하여 서버에서 전달된 데이터나 변수값을 해당 값에다 넣어서 텍스트로 출력할 때 사용
+					Get을 사용하는 느낌이랑 똑같아서 주로 p태그와 같이 무언가를 출력할 때 많이 사용함.
+				
+				th:field
+					HTML에 작성한 내용을 유동적으로 똑같이 설정하는 데 사용되며 주로 사용자가 입력한 값을 서버로 전송할 때 사용(set).
+					주로 input 태그와 같이 사용자가 무언가를 작성해서 DB로 전송할 때 사용
+					또는 예외적으로 서버에서 전달된 데이터나 변수를 폼에 필드 값으로 설정(get)
+					
+					1. th:field = "*{변수명}"
+							폼에 작성해준 변수명을 정의할 때 주로 사용하고 변수명의 상대적인 경로로 *{변수명}으로 적어준 속성을 나타낸다.
+					2. th:field = "${변수명}"
+							변수를 나타내는 표현으로 컨트롤러에서 model에 추가된 속성을 가져와서 필드 안에 넣어줄 떄 많이 사용함.
+			 -->
+		</form>
+	</body>
+</html>
