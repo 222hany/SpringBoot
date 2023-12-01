@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>cafeExists</title>
+	</head>
+	<body>
+		<h2>cafeExists</h2>
+		<p th:if="${cafeExists}">
+			<span th:text="'cafe' + ${name} + ' 는 존재합니다.'"></span>
+		</p>
+		<p th:unless="${cafeExists}">
+			<span th:text="'cafe' + ${name} + ' 는 존재하지 않습니다.'"></span>
+		</p>
+	</body>
+</html>

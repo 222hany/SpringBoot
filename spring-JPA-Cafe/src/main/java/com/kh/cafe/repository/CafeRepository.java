@@ -9,6 +9,12 @@ import org.springframework.data.repository.query.Param;
 import com.kh.cafe.vo.Cafe;
 
 public interface CafeRepository extends JpaRepository<Cafe, Long>{
+	//카페가 존재하는지 존재여부(boolean)
+	boolean existsByName(String name);
+	
+	//count 를 사용해 지역의 갯수가 몇 개인지 찾아보는 메서드
+	int countByLocation(String location);
+	
 	//특정 문자열을 포함한 엔터티를 검색하는데 사용하는 메서드
 	List<Cafe> findByNameContaining(String keyword);
 	
@@ -26,4 +32,16 @@ public interface CafeRepository extends JpaRepository<Cafe, Long>{
 					*existBy : List<클래스명> existBy + 클래스에적어준변수명(String 클래스에적어준변수명); => SELECT CASE WHEN COUNT(*) > 0 THEN true ELSE false
 																							  END FROM 클래스명/테이블 WHERE 클래스에적어준변수명 = ?
 					*deleteBy: List<클래스명> deleteBy + 지우고싶은변수명(String 지우고싶은변수명); => DELETE FROM 클래스명/테이블 WHERE 지우고싶은변수명 = ?
+	
+	Query -> AND OR IS EQUALS BETWEEN AFTER BEFORE LIKE ORDERBY IN FALSE TRUE IGNORECASE
+			1. JPA 에서 SQL AND 구문을 써야할 때			: findBy변수명AND다른변수명
+			2. JPA 에서 SQL OR 구문을 써야할 때			: findBy변수명OR다른변수명
+			3. JPA 에서 SQL IS/EQUALS 구문을 써야할 때	: findBy변수명IS / findBy변수명Equals
+			4. JPA 에서 SQL BETWEEN 구문을 써야할 때		: findBy변수명Between
+			5. JPA 에서 SQL AFTER/BEFORE 구문을 써야할 때 : findBy변수명After/Before
+			6. JPA 에서 SQL LIKE 구문을 써야할 때			: findBy변수명Like
+			7. JPA 에서 SQL ORDERBY 구문을 써야할 때		: findBy변수명OrderBy정렬하고자하는기준변수명DESC/ASC
+			8. JPA 에서 SQL IN 구문을 써야할 때			: findBy변수명IN(List<예약어> 변수명)
+			9. JPA 에서 SQL FALSE/TRUE 구문을 써야할 때	: findBy변수명True() / findBy변수명False()
+			10.JPA 에서 SQL IGNORECASE 구문을 써야할 때	: findBy변수명IgnoreCase
 */

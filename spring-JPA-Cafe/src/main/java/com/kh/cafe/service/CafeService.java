@@ -49,4 +49,14 @@ public class CafeService {
 		//return cafeRepository.findCafe(keyword);
 		return cafeRepository.findByNameContaining(keyword);
 	}
+	
+	//지역카운터
+	public int countCafesByLocation(String location) {
+		return cafeRepository.countByLocation(location);
+	}
+	
+	//카페존재여부
+	public boolean existsCafeByName(String name) {
+		return cafeRepository.existsByName(name);
+	}
 }

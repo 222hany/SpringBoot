@@ -100,6 +100,36 @@ public class CafeController {
 		return "searchResults";
 	}
 	*/
+	
+	//지역카운터
+	@GetMapping("/count/{location}")
+	public String countCafesByLocation(@PathVariable String location, Model model) {
+		int cafeCount = cafeService.countCafesByLocation(location);
+		//1.지역값을 저장할 모델
+		model.addAttribute("location", location);
+		//2.지역 갯수를 저장할 모델
+		model.addAttribute("cafeCount", cafeCount);
+		return "cafeCount";
+	}
+	/*
+	@GetMapping("/count")
+	public String countCafesByLocation(@RequestParam String location, Model model) {
+		int cafeCount = cafeService.countCafesByLocation(location);
+		//1.지역값을 저장할 모델
+		model.addAttribute("location", location);
+		//2.지역 갯수를 저장할 모델
+		model.addAttribute("cafeCount", cafeCount);
+		return "cafeCount";
+	}
+	*/
+	//카페 존재여부
+	@GetMapping("/exists/{name}")
+	public String existsCafeByName(@PathVariable String name, Model model) {
+		boolean cafeExists = cafeService.existsCafeByName(name);
+		model.addAttribute("cafeExists", cafeExists);
+		return "cafeExists";
+	}
+	
 }
 /*
 	http://127.0.01:8082/board?keyword=키워드작성

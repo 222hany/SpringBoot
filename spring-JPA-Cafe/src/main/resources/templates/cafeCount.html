@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Cafe Count</title>
+	</head>
+	<body>
+		<h2>지역별 카페 수</h2>
+		<p th:text="'카페 ' + ${location} + ' : ' + ${cafeCount}"></p>
+		<a th:href="@{/cafes}">돌아가기</a>
+	</body>
+</html>

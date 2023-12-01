@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>KH 쇼핑몰 로그인</title>
+	</head>
+	<body>
+		<div>
+			<form>
+				<div>
+					<label for="email">이메일</label>
+					<input type="email" id="email" name="email" placeholder="이메일을 입력하세요."/>
+				</div>
+				<div>
+					<label for="password">비밀번호</label>
+					<input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요."/>
+				</div>
+				<!-- 로그인 실패 시 p태그가 보일 수 있도록 설정 -->
+				<p th:if="${loginErrorMsg}" th:text="${loginErrorMsg}">잘못된 아이디 혹은 비밀번호 입니다.</p>
+				<button>로그인</button>
+				<button>회원가입</button>
+			</form>
+		</div>
+	</body>
+</html>
