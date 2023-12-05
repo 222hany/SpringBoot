@@ -47,4 +47,47 @@ public class Products {
 @GeneratedValue(strategy = GenerationType.IDENTITY) :
 	DB 자체에서 자동으로 값이 증가할 수 있도록 자동생성이 들어있는 경우 해당 어노테이션 방식을 사용.
 	새로운 레코드가 삽입될 때 마다 DB가 자동으로 기본키의 값을 증가시킴.
+
+Lombok
+	@Builder : 객체를 생성할 때 매개변수의 순서나 개수에 관계없이 보기 편할 수 있도록 객체를 생성할 수 있게 도와주는 메서드.
+	@AllArgsConstructor : 모든 필드에 생성자를 생성해 줌. 객체를 생성할 때 모든 필드를 포함하는 생성자를 쉽게 만들 수 있음.
+						  *@AllArgsConstructor
+						   public class Student{
+						      private String name; //new Student("학생명", 3);
+						      private int grade;
+						   }
+	@NoArgsConstructor : 매개변수가 없는 기본 생성자를 생성해 줌.
+						 *@NoArgsConstructor
+						  public class School{
+						  						//new school()
+						  }
+	@RequireArgsConstructor : 이 어노테이션이 적용된 클래스는 필수로 초기화 해야하는 final 필드나 @NotNull 로 표시된 필드를 사용하는 생성자를 자동으로 생성.
+							  *@RequireArgsConstructor
+							   public class Student{
+							      private final String name;
+							      private final int grade;
+							      private String address;
+							   }
+							   name 과 grade 는 생성자에 포함되지만 address 는 포함되지 않음. 나중에 Student 객체를 다른데서 불러올 때 -> Student st = new Student("이름", 5);
+
+JPA 어노테이션
+	@Prepersist : 엔터티가 DB 에 저장되기 전에 호출되는 메서드를 지정. 엔터티에 필요한 사전 처리작업을 수행하는데 많이 사용.
+				  *@Entity
+				   public class TestEntity{
+				      @Id
+				      private Long id;
+				      private String name;
+				      @DateTimeFormat(patter = "yyyy-mm-dd")
+				      private Date createDate; //now 라는 메서드를 활용해서 현재시간 기입.
+				      
+				      @Prepersists
+				      private void preWork(){
+				         //저장 전 수행할 작업을 작성
+				         //예를 들어 생성일자 설정, 특정 필드 초기화 등
+				      }
+				      @Prepersists
+				      private void createDate(){
+				         this.createDate = LocalDate.now();
+				      }
+				   }
  */

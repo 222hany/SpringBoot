@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>KH 쇼핑몰 상품 리스트</title>
+	</head>
+	<body>
+		<h1>KH 쇼핑몰</h1>
+		<h1>헤더 - 로그인 회원가입 로그아웃 마이페이지에 대한 네비게이션 추가</h1>
+		<div th:each="item : ${items}">
+			<img th:src="@{${item.getPhotoPath}}"/>
+			<h4 th:text="${item.getName()}">아이템 이름</h4>
+			<p th:text="${item.getPrice()}">아이템 가격</p>
+		</div>
+	</body>
+</html>

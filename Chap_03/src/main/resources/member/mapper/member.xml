@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.springdb.model.dao.MemberDAO">
+	<insert id ="isertMember" 
+		parameterType="com.kh.springdb.model.vo.MemberVO">
+		INSERT INTO MEMBER(USER_NO, USER_ID, USER_PW,USER_NAME,USER_ADDR,REG_DATE)
+		VALUES (MEMBER_SEQ.NEXTVAL, #{userId}, #{userPw}, #{userName}, #{userAddr},SYSDATE)
+	</insert>
+</mapper>

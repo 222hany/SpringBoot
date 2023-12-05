@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>상품 등록하기 - 판매자용</title>
+	</head>
+	
+	<body>
+		<h2>상품등록</h2>
+		<form th:action="@{/new}" method="post" enctype="multipart/form-data">
+			<div>
+				<div>
+					<label for="isSoldout">상품상태</label>
+					<input type="radio" name="isSoldout" id="isSoldout" value="0"/>판매중<br>
+					<input type="radio" name="isSoldout" id="isSoldout" value="1"/>품절<br>
+				</div>
+				<div>
+					<label for="name">상품이름</label>
+					<input type="text" id="name" name="name" placeholder="상품명을 입력하세요." required/>
+					<p>이름은 필수로 작성해야합니다.</p>
+				</div>
+				
+				<div>
+					<label for="price">상품가격</label>
+					<input type="text" id="price" name="price" placeholder="가격을 설정해주세요." required/>
+					<p>가격은 필수로 작성해야합니다.</p>
+				</div>
+				
+				<div>
+					<label for="description">상품설명</label>
+					<input type="text" id="description" name="description" placeholder="상품설명을 작성해주세요." required/>
+					<p>상품설명은 필수로 작성해야합니다.</p>
+				</div>
+				
+				<div>
+					<label for="stockQuantity">상품재고</label>
+					<input type="text" id="stockQuantity" name="stockQuantity" placeholder="재고를 입력하세요." required/>
+					<p>상품재고는 필수로 작성해야합니다.</p>
+				</div>
+				
+				<div>
+					<label for="photoFile">상품이미지 업로드</label>
+					<input type="file" id="photoFile" name="photoFile" required/>
+					<p>상품이미지는 필수로 등록해야합니다.</p>
+				</div>
+				<button type="submit">상품등록</button>
+			</div>
+		</form>
+	</body>
+</html>

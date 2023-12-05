@@ -1,19 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.thymeleaf.org">
 	<head>
 		<meta charset="EUC-KR">
 		<title>KH Shopping Mall</title>
+		
 	</head>
 	<body>
 		<h2>KH 쇼핑몰에 오신걸 환영합니다.</h2>
 		
-		<div>
-			<a th:href="/members/new">회원가입</a>
-			<a th:href="/members/login">로그인</a>
-		</div>
 		
+		<div>
+			<th:block th:if="${loginMember != null}">
+				<p>로그아웃</p>
+			</th:block>
+			
+			
+			<th:block th:unless="${loginMember} == null">
+				<form>
+					<input type="email" name="email" placeholder="이메일을 입력해주세요." required/>
+					<input type="password" name="password" placeholder="비밀번호를 입력하세요." required/>
+					<button type="submit">로그인</button>
+				</form>
+			</th:block>
+			<a href="/members/new">회원가입</a>
+			
+			
+		</div>
 		<p>배너자리</p>
-		<img src="img/sky2.jpeg"/>
+		<img src="img/banner.png"/>
 		
 		<div>쇼핑리스트</div>
 	</body>
