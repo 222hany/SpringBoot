@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Item Details</title>
+		<style>
+			.item-container{
+				max-width:900px;
+				margin:0 auto;
+			}
+			.item{
+				float:left;
+				width:200px;
+				border:1px solid #ccc;
+				padding:10px;
+				text-align:center;
+				margin:10px;
+			}
+			.item img{
+				width:100%;
+				height:auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h2 th:text="${item.name}">상세보기</h2><br/>
+		<div class="item-container">
+			<div class="item">
+				<!-- 이미지가 없는 경우 안보여주고 있으면 보여줄 수 있도록 설정 -->
+				<div th:if="${item.imgName != null and item.imgPath != null}">
+					<!-- img 경로와 이미지 이름 -->		
+					<img th:src="@{${item.imgPath}}">
+				</div>
+				<div th:unless="${item.imgName != null and item.imgPath != null}">
+					<p>상품 이미지 없음.</p>
+				</div>
+				
+				<label>상세 설명</label>
+				<p th:text="${item.text}"></p><br/>
+				
+				<label>제품 가격</label>
+				<p th:text="${item.price}"></p><br/>
+				
+				<label>재고 수량</label>
+				<p th:text="${item.stock}"></p><br/>
+				
+				<a th:href="@{/item/list}">돌아가기</a>
+			</div>
+		</div>
+	</body>
+</html>
