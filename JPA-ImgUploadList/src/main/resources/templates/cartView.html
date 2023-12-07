@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>장바구니</title>
+	</head>
+	<body>
+		<h1>장바구니</h1>
+		<div th:if="${cart != null}">
+			<table>
+				<thead>
+					<tr>
+						<th>상품명</th>
+						<th>가격</th>
+						<th>수량</th>
+						<th>합계</th>
+					</tr>
+				</thead>
+				
+				<tbody th:each="cartItem : ${cart.cartItems}">
+					<tr>
+						<!--
+							${cartItem.item.name} : cartItem에 있는 객체에서 item 에 있는 name 속성을 나타냄
+							public class CartItem{
+								private Item item;
+							}
+							1.CartItem 에 포함해서 작성해준 필드 Item 에 들어가
+							public class Item{
+								private String name;
+								private int price;
+							}
+							2.String name 로 지정해 준 값을 가져옴
+						-->
+						<td th:text="${cartItem.item.name}"></td>
+						<td th:text="${cartItem.item.price}"></td>
+						<td th:text="${cartItem.count}"></td>
+						<td th:text="${cartItem.item.price * cartItem.count}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div th:unless="${cart != null}">
+			<p>카트에 담긴 제품이 없습니다.</p>
+		</div>
+		<!-- 총 가격과 총 수량을 작성해주는 p태그 -->
+		<p>총 가격 : <span th:text="${cart.totalAmount}"></span></p>
+		<p>총 수량 : <span th:text="${cart.totalCount}"></span></p>
+	</body>
+</html>

@@ -22,7 +22,7 @@ public class Item {
 	
 	private String name; //상품이름
 	private String text; //상품설명
-	private int price; //상품가격
+	private String price; //상품가격
 	private int count; //판매개수
 	private int stock; //재고
 	private int isSoldOut; //상품 품절 유무
